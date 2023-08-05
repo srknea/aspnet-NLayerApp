@@ -3,6 +3,7 @@ using NLayerApp.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,6 +24,22 @@ namespace NLayerApp.Repository
         {
             //Fluent API 
             //modelBuilder.Entity<Category>().HasKey(x => x.Id);
+
+
+            /* Configuration'ları tek tek eklemek */
+            /*
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new ProductFeatureConfiguration());
+            */
+
+            /* Configuration'ları tek satırda eklemek */
+            // IEntityTypeConfiguration interace'ini implemente eden class'ları bulur ve onları bulur ve onları uygular.
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            // Assembly nedir? : Solution'daki bütün Class Library'leri temsil eder.
+            // Assembly içerisindeki tüm class'ları bul ve onları uygula.
+            // Neredeki Assembly ? -> Assembly.GetExecutingAssembly() : Bu class'ın bulunduğu assembly
+
             base.OnModelCreating(modelBuilder);
         }
     }
