@@ -9,7 +9,7 @@ namespace NLayerApp.Core
     public class Category : BaseEntity
     {
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         
         //Bir kategorinin birden fazla ürünü olabilir.
         public ICollection<Product> Products { get; set; }
