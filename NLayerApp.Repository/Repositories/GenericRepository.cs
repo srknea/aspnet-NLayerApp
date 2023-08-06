@@ -12,7 +12,8 @@ namespace NLayerApp.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        // protected erişim belirleyicisi ile tanımlanan değişkenler sadece tanımlandıkları sınıf içerisinde veya bu sınıftan türetilen sınıflar içerisinde erişilebilir.
+        /* protected erişim belirleyicisi ile tanımlanan değişkenler sadece tanımlandıkları 
+        sınıf içerisinde veya bu sınıftan türetilen sınıflar içerisinde erişilebilir. */
         protected readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
 
@@ -27,9 +28,9 @@ namespace NLayerApp.Repository.Repositories
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task AddRangeAsync(T entity)
+        public async Task AddRangeAsync(IEnumerable<T> entities)
         {
-            await _dbSet.AddRangeAsync(entity);
+            await _dbSet.AddRangeAsync(entities);
         }
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
@@ -37,7 +38,7 @@ namespace NLayerApp.Repository.Repositories
             return await _dbSet.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {         
             return _dbSet.AsNoTracking().AsQueryable();
         }
@@ -53,9 +54,9 @@ namespace NLayerApp.Repository.Repositories
             _dbSet.Remove(entity);
         }
 
-        public void RemoveRange(IEnumerable<T> entity)
+        public void RemoveRange(IEnumerable<T> entities)
         {
-            _dbSet.RemoveRange(entity);
+            _dbSet.RemoveRange(entities);
         }
 
         public void Update(T entity)
