@@ -25,6 +25,7 @@ namespace NLayerApp.Repository
             //Fluent API 
             //modelBuilder.Entity<Category>().HasKey(x => x.Id);
 
+            /* ----------------------------------------------------- */
 
             /* Configuration'ları tek tek eklemek */
             /*
@@ -39,6 +40,17 @@ namespace NLayerApp.Repository
             // Assembly nedir? : Solution'daki bütün Class Library'leri temsil eder.
             // Assembly içerisindeki tüm class'ları bul ve onları uygula.
             // Neredeki Assembly ? -> Assembly.GetExecutingAssembly() : Bu class'ın bulunduğu assembly
+
+            /* ----------------------------------------------------- */
+
+            /* Seed Data'ları direkt buradan eklemek... (Biz Seeds klasöründen ekledik...)*/
+            /*
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Kalemler" },
+                new Category { Id = 2, Name = "Defterler" },
+                new Category { Id = 3, Name = "Kitaplar" }
+            );
+            */
 
             base.OnModelCreating(modelBuilder);
         }
