@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayerApp.Core
+namespace NLayerApp.Core.Model
 {
     public class Product : BaseEntity
     {
@@ -17,7 +17,7 @@ namespace NLayerApp.Core
         }
         */
 
-        public string? Name { get; set; } 
+        public string? Name { get; set; }
         public int Stock { get; set; }
         public decimal Price { get; set; }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NLayerApp.Core
+namespace NLayerApp.Core.Model
 {
     public class ProductFeature
     {
@@ -14,7 +14,7 @@ namespace NLayerApp.Core
         public int Width { get; set; }
 
 
-        public int ProductId { get; set; } 
+        public int ProductId { get; set; }
         public Product Product { get; set; }
     }
 }

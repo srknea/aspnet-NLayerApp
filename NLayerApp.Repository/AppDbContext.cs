@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NLayerApp.Core;
+using NLayerApp.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
