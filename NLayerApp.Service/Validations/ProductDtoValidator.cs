@@ -14,9 +14,9 @@ namespace NLayerApp.Service.Validations
         {
             RuleFor(x => x.Name).NotNull().WithMessage("{PropoertyName} is required").NotEmpty().WithMessage("{PropoertyName} is required").MaximumLength(200).WithMessage("{PropoertyName} can not be longer than 200 characters");
 
-            RuleFor(x => x.Price).InclusiveBetween(1, int.MaxValue).WithMessage("{PropoertyName} must be greter than 0");
-            RuleFor(x => x.Stock).InclusiveBetween(1,int.MaxValue).WithMessage("{PropoertyName} must be greter than 0");
-            RuleFor(x => x.CategoryId).InclusiveBetween(1,int.MaxValue).WithMessage("{PropoertyName} must be greter than 0");
+            RuleFor(x => x.Price).InclusiveBetween(1, int.MaxValue).WithMessage("{PropoertyName} must be greater than 0");
+            RuleFor(x => x.Stock).InclusiveBetween(1,int.MaxValue).WithMessage("{PropoertyName} must be greater than 0");
+            RuleFor(x => x.CategoryId).InclusiveBetween(1,int.MaxValue).WithMessage("{PropoertyName} must be greater than 0");
 
         }
     }
