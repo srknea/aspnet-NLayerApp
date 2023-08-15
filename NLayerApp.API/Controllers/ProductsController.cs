@@ -33,12 +33,6 @@ namespace NLayerApp.API.Controllers
 
             var product = await _productService.GetByIdAsync(id);
 
-            // Bu kontrolü ileride daha genel bir yerde yapacağız.
-            if (product == null)
-            {
-                return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "Bu id'ye sahip ürün bulunamadı"));
-            }
-
             var productDto = _mapper.Map<ProductDto>(product);
 
             return CreateActionResult(CustomResponseDto<ProductDto>.Success(200, productDto));
@@ -68,12 +62,6 @@ namespace NLayerApp.API.Controllers
         {
             var product = await _productService.GetByIdAsync(id);
             
-            // Bu kontrolü ileride daha genel bir yerde yapacağız.
-            if (product == null)
-            {
-                return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "Bu id'ye sahip ürün bulunamadı"));
-            }
-
             await _productService.RemoveAsync(product);
 
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));

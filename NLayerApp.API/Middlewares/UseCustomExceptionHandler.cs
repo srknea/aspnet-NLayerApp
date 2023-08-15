@@ -22,8 +22,11 @@ namespace NLayerApp.API.Middlewares
                     var statusCode = exceptionFeature.Error switch
                     {
                         ClientSideException => 400,
+                        NotFoundException => 404,
                         _ => 500
                     };
+                    // 500 ile ilgili durum şuan best practice değildir.
+
                     context.Response.StatusCode = statusCode;
 
                     var response = CustomResponseDto<NoContentDto>.Fail(statusCode,exceptionFeature.Error.Message);
