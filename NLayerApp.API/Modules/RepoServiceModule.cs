@@ -9,6 +9,7 @@ using NLayerApp.Service.Services;
 using NLayerApp.Core.Services;
 using NLayerApp.Repository.UnitOfWorks;
 using NLayerApp.Core.UnitOfWorks;
+using NLayerApp.Caching;
 
 namespace NLayerApp.API.Modules
 {
@@ -31,7 +32,7 @@ namespace NLayerApp.API.Modules
 
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
-
+            builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
         }
     }
 }

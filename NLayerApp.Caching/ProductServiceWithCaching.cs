@@ -33,7 +33,7 @@ namespace NLayerApp.Caching
 
             if (!_memoryCache.TryGetValue(CacheProductKey, out _)) 
             {
-                _memoryCache.Set(CacheProductKey, _repository.GetAll().ToList());
+                _memoryCache.Set(CacheProductKey, _repository.GetProductWithCategory().Result);
             }
         }
 
@@ -60,7 +60,7 @@ namespace NLayerApp.Caching
 
         public Task<IEnumerable<Product>> GetAllAsync()
         {
-            return Task.FromResult(_memoryCache.Get<List<Product>>(CacheProductKey).AsEnumerable());
+            return Task.FromResult(_memoryCache.Get<IEnumerable<Product>>(CacheProductKey));
         }
 
         public Task<Product> GetByIdAsync(int id)
@@ -75,14 +75,14 @@ namespace NLayerApp.Caching
             return Task.FromResult(product);
         }
 
-        // ProductWithCategory için cachleme yapılmadı. ProductWithCategory Db üzerinden çekilmeye devam ediyor.
-        public async Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductWithCategory()
+        public Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductWithCategory()
         {
-            var products = await _repository.GetProductWithCategory();
+
+            var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey);
 
             var productWithCategoryDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
 
-            return CustomResponseDto<List<ProductWithCategoryDto>>.Success(200, productWithCategoryDto);
+            return Task.FromResult(CustomResponseDto<List<ProductWithCategoryDto>>.Success(200, productWithCategoryDto));
         }
 
         public async Task RemoveAsync(Product entity)
@@ -114,7 +114,7 @@ namespace NLayerApp.Caching
         // Bu methodu her çağırdığımızda sıfırdan datayı çeker ve cache'e yazar.
         public async Task CacheAllProductsAsync()
         {
-            await _memoryCache.Set(CacheProductKey, _repository.GetAll().ToListAsync());
+            _memoryCache.Set(CacheProductKey, await _repository.GetAll().ToListAsync());
         }
     }
 }
