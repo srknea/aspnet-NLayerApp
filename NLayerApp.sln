@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerApp.Repository", "NLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerApp.Service", "NLayerApp.Service\NLayerApp.Service.csproj", "{74592128-264C-4678-87F8-9A6742316F33}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerApp.API", "NLayerApp.API\NLayerApp.API.csproj", "{115BC820-22C4-4E45-A6E3-192677B8CD7C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerApp.Web", "NLayerApp.Web\NLayerApp.Web.csproj", "{1097EA8B-473F-4431-9D7A-3435F64EDC88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerApp.Caching", "NLayerApp.Caching\NLayerApp.Caching.csproj", "{D1897F07-0E99-40C1-8FDF-5F2D1B8918BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerApp.Caching", "NLayerApp.Caching\NLayerApp.Caching.csproj", "{D1897F07-0E99-40C1-8FDF-5F2D1B8918BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,10 +31,6 @@ Global
 		{74592128-264C-4678-87F8-9A6742316F33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74592128-264C-4678-87F8-9A6742316F33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74592128-264C-4678-87F8-9A6742316F33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{115BC820-22C4-4E45-A6E3-192677B8CD7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{115BC820-22C4-4E45-A6E3-192677B8CD7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{115BC820-22C4-4E45-A6E3-192677B8CD7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{115BC820-22C4-4E45-A6E3-192677B8CD7C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1097EA8B-473F-4431-9D7A-3435F64EDC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1097EA8B-473F-4431-9D7A-3435F64EDC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1097EA8B-473F-4431-9D7A-3435F64EDC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
