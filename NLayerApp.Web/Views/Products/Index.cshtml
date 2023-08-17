@@ -16,18 +16,23 @@
             <th>Stock</th>
             <th>Category</th>
             <th>Created Date</th>
+            <th>Action</th>
+
         </tr>
     </thead>
     <tbody>
         @foreach (var product in Model)
         {
             <tr>
+
                 <td>@product.Id</td>
                 <td>@product.Name</td>
                 <td>@product.Price</td>
                 <td>@product.Stock</td>
                 <td>@product.Category.Name</td>
                 <td>@product.CreatedDate</td>
+                <td><a class="btn btn-warning" asp-controller="Products" asp-action="Update" asp-route-id="@product.Id">Update</a></td>
+            
             </tr>
         }
     </tbody>
