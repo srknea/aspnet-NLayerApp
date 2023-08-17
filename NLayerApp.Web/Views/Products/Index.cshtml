@@ -6,9 +6,9 @@
 
 <h1>Index</h1>
 
-<table>
+<table class="table table-striped">
 
-<thead class="table table-striped">
+    <thead>
         <tr>
             <th>Id</th>
             <th>Name</th>
@@ -26,7 +26,7 @@
                 <td>@product.Name</td>
                 <td>@product.Price</td>
                 <td>@product.Stock</td>
-                <td>@product.Category</td>
+                <td>@product.Category.Name</td>
                 <td>@product.CreatedDate</td>
             </tr>
         }
