@@ -31,8 +31,10 @@
                 <td>@product.Stock</td>
                 <td>@product.Category.Name</td>
                 <td>@product.CreatedDate</td>
-                <td><a class="btn btn-warning" asp-controller="Products" asp-action="Update" asp-route-id="@product.Id">Update</a></td>
-            
+                <td>
+                    <a class="btn btn-warning" asp-controller="Products" asp-action="Update" asp-route-id="@product.Id">Update</a>
+                    <a class="btn btn-danger" asp-controller="Products" asp-action="Remove" asp-route-id="@product.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
