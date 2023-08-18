@@ -12,11 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NLayerApp.Service\NLayerApp.Service.csproj" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\NLayerApp.Service\NLayerApp.Service.csproj" />
   </ItemGroup>
 
 </Project>
