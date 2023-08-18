@@ -7,6 +7,7 @@ using NLayerApp.Service.Mapping;
 using NLayerApp.Service.Validations;
 using NLayerApp.Web;
 using NLayerApp.Web.Modules;
+using NLayerApp.Web.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,15 @@ builder.Services.AddDbContext<AppDbContext>(x =>
         //option.MigrationsAssembly("NLayerApp.Repository");
         option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
+});
+
+builder.Services.AddHttpClient<ProductApiService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
+builder.Services.AddHttpClient<CategoryApiService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 });
 
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
